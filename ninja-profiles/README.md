@@ -1,10 +1,7 @@
 # Ninja-Profiles
 
 This project is a code assignment for 1337 to show what I'm made of and to have fun while doing it.
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project was initiated with create-react-app
 
 ## Available Scripts
 

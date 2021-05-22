@@ -1,5 +1,5 @@
-function App() {
+const App = () => {
   return <p>wazzap?</p>;
-}
+};
 
 export default App;
