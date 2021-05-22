@@ -1,6 +1,11 @@
-# inja-profiles
+# ninja-profiles
 
 This project is a code assignment for 1337 to show my skills and to have fun while doing it. 
+
+## Tools
+
+### React
+### TypesSript
 
 ## Available Scripts
 
