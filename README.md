@@ -4,8 +4,8 @@ This project is a code assignment for 1337 to show my skills and to have fun whi
 
 ## Tools
 
-### React
-### TypesSript
+* ### React
+* ### TypesSript
 
 ## Available Scripts
 
