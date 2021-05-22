@@ -1,4 +1,6 @@
-# ninja-profiles
+# inja-profiles
+
+This project is a code assignment for 1337 to show my skills and to have fun while doing it. 
 
 ## Available Scripts
 
