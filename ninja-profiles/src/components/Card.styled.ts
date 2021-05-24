@@ -8,13 +8,5 @@ export const Card = styled.div`
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-`;
-
-export const CardWrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  diplay: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin: 12px 20px;
 `;
