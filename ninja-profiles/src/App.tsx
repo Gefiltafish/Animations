@@ -1,5 +1,7 @@
+import { NinjaCard } from './components/NinjaCard';
+
 const App = () => {
-  return <p>wazzap?</p>;
+  return <NinjaCard></NinjaCard>;
 };
 
 export default App;
