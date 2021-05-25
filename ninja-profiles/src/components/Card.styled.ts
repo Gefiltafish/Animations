@@ -15,6 +15,9 @@ export const Card = styled.div`
   margin: 12px 20px;
   box-shadow: rgba(220, 221, 224, 0.6) 1px 2px;
   padding: 8px 12px;
+  &:hover {
+    box-shadow: rgba(220, 221, 224, 0.8) 3px 4px;
+  }
 `;
 
 export const ParagraphWrapper = styled.div`
@@ -51,6 +54,13 @@ export const AnchorWrapper = styled.div`
 export const Anchor = styled.a`
   text-decoration: none;
   cursor: pointer;
+  color: #76bb60;
+  :visited {
+    color: #76bb60;
+  }
+  :hover {
+    color: #a35eba;
+  }
 `;
 
 // 76BB60 green;

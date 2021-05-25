@@ -23,6 +23,7 @@ export const NinjaCardPage = () => {
   }
 
   const [ninjas, setNinjas] = useState<Ninja[]>([]);
+  const [filterByName, setFilterByName] = useState<string>('Agron Kabashi');
 
   useEffect(() => {
     axios
@@ -37,9 +38,16 @@ export const NinjaCardPage = () => {
       });
   }, []);
 
-  if (ninjas !== undefined) {
-    console.log(ninjas);
-  }
+  useEffect(() => {
+    if (filterByName !== '') {
+      const filteredArray = ninjas.filter((ninja) => {
+        return ninja.name === filterByName;
+      });
+      if (filteredArray.length > 0) {
+        setNinjas(filteredArray);
+      }
+    }
+  }, [filterByName, ninjas]);
 
   return ninjas.length > 0 ? (
     <CardWrapper>
