@@ -51,6 +51,8 @@ export const NinjaCardPage = () => {
             linkedin={ninja.linkedIn}
             github={ninja.gitHub}
             twitter={ninja.twitter}
+            image={ninja.imagePortraitUrl}
+            phone={ninja.phoneNumber}
           ></Card>
         );
       })}
