@@ -4,6 +4,24 @@ import { Card } from '../Card';
 import { CardWrapper } from './NinjaCardPage.styled';
 
 export const NinjaCardPage = () => {
+  interface Ninja {
+    email: string;
+    gitHub: string;
+    highlighted: boolean;
+    imagePortraitUrl: string;
+    imageWallOfLeetUrl: string;
+    linkedIn: string;
+    mainText: string;
+    manager: string;
+    name: string;
+    office: string;
+    orgUnit: string;
+    phoneNumber: string;
+    published: boolean;
+    stackOverflow: null | string;
+    twitter: string;
+  }
+
   const [ninjas, setNinjas] = useState<Ninja[]>([]);
 
   useEffect(() => {
@@ -26,28 +44,18 @@ export const NinjaCardPage = () => {
   return ninjas.length > 0 ? (
     <CardWrapper>
       {ninjas.map((ninja) => {
-        return <Card></Card>;
+        return (
+          <Card
+            name={ninja.name}
+            office={ninja.office}
+            linkedin={ninja.linkedIn}
+            github={ninja.gitHub}
+            twitter={ninja.twitter}
+          ></Card>
+        );
       })}
     </CardWrapper>
   ) : (
     <p>loading...</p>
   );
 };
-
-interface Ninja {
-  email: string;
-  gitHub: string;
-  highlighted: boolean;
-  imagePortraitUrl: string;
-  imageWallOfLeetUrl: string;
-  linkedIn: string;
-  mainText: string;
-  manager: string;
-  name: string;
-  office: string;
-  orgUnit: string;
-  phoneNumber: string;
-  published: boolean;
-  stackOverflow: null | string;
-  twitter: string;
-}
