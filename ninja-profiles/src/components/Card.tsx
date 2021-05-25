@@ -17,11 +17,11 @@ export const Card = ({
 }: NinjaCard) => {
   return (
     <S.Card>
-      <span>{name}</span>
-      <span>{office}</span>
+      <S.Paragraph>{name}</S.Paragraph>
+      {/* <span>{office}</span>
       <span>{linkedin}</span>
       <span>{github}</span>
-      <span>{twitter}</span>
+      <span>{twitter}</span> */}
     </S.Card>
   );
 };
