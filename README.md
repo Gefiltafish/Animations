@@ -5,7 +5,6 @@ It was initiated with use-react-app.
 
 ## Tickets
 
-The tickets I choose for this project are:
 * A modern design: I like it when things look neat. Some of the design like colors and shadows I borrowed from the already existing ninja-page
 * No UI framework used: I've always enjoyed writing CSS, and even though something like Material-UI sure is nice, it always feels nice to write 
 the styling yourself.
