@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn cypress`
 
-Make sure you are running the project on localhost:3000
+Make sure you are already running the project on localhost:3000
 
 ### `yarn build`
 
