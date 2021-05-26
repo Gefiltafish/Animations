@@ -1,27 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Card } from '../Card';
+import { Ninja } from '../types';
 import * as S from './NinjaCardPage.styled';
+import { useFilterByGithub } from './utils/useFilterByGithub';
+import { useFilterByLinkedin } from './utils/useFilterByLinkedin';
+import { useFilterByTwitter } from './utils/useFilterByTwitter';
 
 export const NinjaCardPage = () => {
-  interface Ninja {
-    email: string;
-    gitHub: string | null;
-    highlighted: boolean;
-    imagePortraitUrl: string;
-    imageWallOfLeetUrl: string;
-    linkedIn: string | null;
-    mainText: string;
-    manager: string;
-    name: string;
-    office: string;
-    orgUnit: string;
-    phoneNumber: string;
-    published: boolean;
-    stackOverflow: string | null;
-    twitter: string | null;
-  }
-
   const [ninjas, setNinjas] = useState<Ninja[]>([]);
   const [filteredNinjas, setFilteredNinjas] = useState<Ninja[]>([]);
   const [filterByName, setFilterByName] = useState<string>('Search by name');
@@ -30,6 +16,20 @@ export const NinjaCardPage = () => {
   const [filterByTwitter, setFilterByTwitter] = useState<boolean>(false);
   const [filterByOffice, setFilterByOffice] =
     useState<string>('Search by office');
+
+  useFilterByGithub(filterByGithub, filteredNinjas, ninjas, setFilteredNinjas);
+  useFilterByLinkedin(
+    filterByLinkedin,
+    filteredNinjas,
+    ninjas,
+    setFilteredNinjas,
+  );
+  useFilterByTwitter(
+    filterByTwitter,
+    filteredNinjas,
+    ninjas,
+    setFilteredNinjas,
+  );
 
   useEffect(() => {
     axios
@@ -77,42 +77,6 @@ export const NinjaCardPage = () => {
     setFilterByOffice(input);
   };
 
-  useEffect(() => {
-    if (filterByGithub) {
-      const filteredArray = filteredNinjas.filter((ninja) => {
-        return ninja.gitHub !== null;
-      });
-      setFilteredNinjas(filteredArray);
-    }
-    if (!filterByGithub) {
-      setFilteredNinjas(ninjas);
-    }
-  }, [filterByGithub]);
-
-  useEffect(() => {
-    if (filterByLinkedin) {
-      const filteredArray = filteredNinjas.filter((ninja) => {
-        return ninja.linkedIn !== null;
-      });
-      setFilteredNinjas(filteredArray);
-    }
-    if (!filterByLinkedin) {
-      setFilteredNinjas(ninjas);
-    }
-  }, [filterByLinkedin]);
-
-  useEffect(() => {
-    if (filterByTwitter) {
-      const filteredArray = filteredNinjas.filter((ninja) => {
-        return ninja.twitter !== null;
-      });
-      setFilteredNinjas(filteredArray);
-    }
-    if (!filterByTwitter) {
-      setFilteredNinjas(ninjas);
-    }
-  }, [filterByTwitter]);
-
   return filteredNinjas.length > 0 ? (
     <>
       <S.HeaderWrapper>
@@ -128,21 +92,21 @@ export const NinjaCardPage = () => {
         ></S.Input>
         <S.CheckboxRow>
           <S.CheckboxWrapper>
-            <S.CheckboxText>Filter by Github</S.CheckboxText>
+            <S.CheckboxText>Github</S.CheckboxText>
             <S.Checkbox
               type="checkbox"
               onChange={() => setFilterByGithub(!filterByGithub)}
             ></S.Checkbox>
           </S.CheckboxWrapper>
           <S.CheckboxWrapper>
-            <S.CheckboxText>Filter by LinkedIn</S.CheckboxText>
+            <S.CheckboxText>LinkedIn</S.CheckboxText>
             <S.Checkbox
               type="checkbox"
               onChange={() => setFilterByLinkedin(!filterByLinkedin)}
             ></S.Checkbox>
           </S.CheckboxWrapper>
           <S.CheckboxWrapper>
-            <S.CheckboxText>Filter by Twitter</S.CheckboxText>
+            <S.CheckboxText>Twitter</S.CheckboxText>
             <S.Checkbox
               type="checkbox"
               onChange={() => setFilterByTwitter(!filterByTwitter)}
