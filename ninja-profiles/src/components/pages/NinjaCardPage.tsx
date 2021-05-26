@@ -23,7 +23,10 @@ export const NinjaCardPage = () => {
   }
 
   const [ninjas, setNinjas] = useState<Ninja[]>([]);
-  const [filterByName, setFilterByName] = useState<string>('Agron Kabashi');
+  const [filteredNinjas, setFilteredNinjas] = useState<Ninja[]>([]);
+  const [filterByName, setFilterByName] = useState<string>('Search by name');
+  const [filterByOffice, setFilterByOffice] =
+    useState<string>('Search by office');
 
   useEffect(() => {
     axios
@@ -44,16 +47,47 @@ export const NinjaCardPage = () => {
         return ninja.name === filterByName;
       });
       if (filteredArray.length > 0) {
-        setNinjas(filteredArray);
+        setFilteredNinjas(filteredArray);
+      } else {
+        setFilteredNinjas(ninjas);
       }
     }
   }, [filterByName, ninjas]);
 
-  return ninjas.length > 0 ? (
+  useEffect(() => {
+    if (filterByOffice !== '') {
+      const filteredArray = ninjas.filter((ninja) => {
+        return ninja.office === filterByOffice;
+      });
+      if (filteredArray.length > 0) {
+        setFilteredNinjas(filteredArray);
+      } else {
+        setFilteredNinjas(ninjas);
+      }
+    }
+  }, [filterByOffice, ninjas]);
+
+  const handleChangeNameText = (input: string) => {
+    setFilterByName(input);
+  };
+  const handleChangeOfficeText = (input: string) => {
+    setFilterByOffice(input);
+  };
+
+  return filteredNinjas.length > 0 ? (
     <CardWrapper>
-      {ninjas.map((ninja) => {
+      <input
+        onChange={(e) => handleChangeNameText(e.currentTarget.value)}
+        value={filterByName}
+      ></input>
+      <input
+        onChange={(e) => handleChangeOfficeText(e.currentTarget.value)}
+        value={filterByOffice}
+      ></input>
+      {filteredNinjas.map((ninja, i) => {
         return (
           <Card
+            key={i}
             name={ninja.name}
             office={ninja.office}
             linkedin={ninja.linkedIn}
