@@ -2,12 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Card } from '../Card';
 import { Ninja } from '../types';
-import * as S from './NinjaCardPage.styled';
+import * as S from './NinjaPage.styled';
 import { useFilterByGithub } from './utils/useFilterByGithub';
 import { useFilterByLinkedin } from './utils/useFilterByLinkedin';
 import { useFilterByTwitter } from './utils/useFilterByTwitter';
 
-export const NinjaCardPage = () => {
+export const NinjaPage = () => {
   const [ninjas, setNinjas] = useState<Ninja[]>([]);
   const [filteredNinjas, setFilteredNinjas] = useState<Ninja[]>([]);
   const [filterByName, setFilterByName] = useState<string>('Search by name');

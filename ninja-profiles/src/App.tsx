@@ -1,7 +1,7 @@
-import { NinjaCardPage } from './components/pages/NinjaCardPage';
+import { NinjaPage } from './components/pages/NinjaPage';
 
 const App = () => {
-  return <NinjaCardPage></NinjaCardPage>;
+  return <NinjaPage></NinjaPage>;
 };
 
 export default App;
