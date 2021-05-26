@@ -1,4 +1,4 @@
-import { ninjaMock } from './mockData';
+import { ninjaMock } from '../../../mockData/mockData';
 
 describe('Entering the ninja-page', () => {
   beforeEach(() => {
