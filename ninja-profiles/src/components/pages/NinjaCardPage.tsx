@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Card } from '../Card';
-import { CardWrapper } from './NinjaCardPage.styled';
+import * as S from './NinjaCardPage.styled';
 
 export const NinjaCardPage = () => {
   interface Ninja {
@@ -75,30 +75,36 @@ export const NinjaCardPage = () => {
   };
 
   return filteredNinjas.length > 0 ? (
-    <CardWrapper>
-      <input
-        onChange={(e) => handleChangeNameText(e.currentTarget.value)}
-        value={filterByName}
-      ></input>
-      <input
-        onChange={(e) => handleChangeOfficeText(e.currentTarget.value)}
-        value={filterByOffice}
-      ></input>
-      {filteredNinjas.map((ninja, i) => {
-        return (
-          <Card
-            key={i}
-            name={ninja.name}
-            office={ninja.office}
-            linkedin={ninja.linkedIn}
-            github={ninja.gitHub}
-            twitter={ninja.twitter}
-            image={ninja.imagePortraitUrl}
-            phone={ninja.phoneNumber}
-          ></Card>
-        );
-      })}
-    </CardWrapper>
+    <>
+      <S.HeaderWrapper>
+        <S.Input
+          placeholder="Search by name"
+          onChange={(e) => handleChangeNameText(e.currentTarget.value)}
+          value={filterByName}
+        ></S.Input>
+        <S.Input
+          placeholder="Search by office"
+          onChange={(e) => handleChangeOfficeText(e.currentTarget.value)}
+          value={filterByOffice}
+        ></S.Input>
+      </S.HeaderWrapper>
+      <S.CardWrapper>
+        {filteredNinjas.map((ninja, i) => {
+          return (
+            <Card
+              key={i}
+              name={ninja.name}
+              office={ninja.office}
+              linkedin={ninja.linkedIn}
+              github={ninja.gitHub}
+              twitter={ninja.twitter}
+              image={ninja.imagePortraitUrl}
+              phone={ninja.phoneNumber}
+            ></Card>
+          );
+        })}
+      </S.CardWrapper>
+    </>
   ) : (
     <p>loading...</p>
   );
