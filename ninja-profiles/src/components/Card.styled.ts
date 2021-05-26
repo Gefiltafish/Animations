@@ -62,6 +62,3 @@ export const Anchor = styled.a`
     color: #a35eba;
   }
 `;
-
-// 76BB60 green;
-// A35EBA purple;

@@ -35,3 +35,28 @@ export const Input = styled.input`
     color: #ffffff;
   }
 `;
+
+export const CheckboxRow = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CheckboxWrapper = styled.div`
+  width: 200px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CheckboxText = styled.span`
+  color: #ffffff;
+`;
+
+export const Checkbox = styled.input<{ type: 'checkbox' }>`
+  width: 32px;
+  height: 32px;
+`;

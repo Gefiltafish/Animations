@@ -3,11 +3,11 @@ import * as S from './Card.styled';
 interface NinjaCard {
   name: string;
   office: string;
-  linkedin?: string;
-  github?: string;
-  twitter?: string;
+  linkedin: string | null;
+  github: string | null;
+  twitter: string | null;
   image: string;
-  phone?: string;
+  phone: string | null;
 }
 
 export const Card = ({
