@@ -1,5 +1,7 @@
+import { NinjaPage } from './components/pages/NinjaPage';
+
 const App = () => {
-  return <p>wazzap?</p>;
+  return <NinjaPage></NinjaPage>;
 };
 
 export default App;
