@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrows</title>
+  </head>
+
+  <style>
+    :root {
+      --dark-color: #5b59d3;
+      --light-color: #8feaa3;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    #darkGroup {
+      fill: var(--dark-color);
+    }
+    #lightGroup {
+      fill: var(--light-color);
+    }
+
+    #dark1,
+    #dark2,
+    #light1 {
+      transition: all 1s ease;
+    }
+    #dark2 {
+      transform: translateX(-100%);
+    }
+
+    svg:hover #light1 {
+      transform: translateX(20%);
+    }
+    svg:hover #dark1 {
+      transform: translateX(40%);
+      opacity: 0;
+    }
+    svg:hover #dark2 {
+      transform: translateX(10%);
+    }
+  </style>
+
+  <body>
+    <svg
+      width="200"
+      height="100"
+      viewBox="0 0 100 50"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      id="triangles"
+    >
+      <g clip-path="url(#clip0)">
+        <g id="lightGroup">
+          <path
+            id="light1"
+            opacity="0.7"
+            d="M15.1244 14.732C15.1244 13.9622 15.9577 13.4811 16.6244 13.866L34.6244 24.2583C35.291 24.6432 35.291 25.6055 34.6244 25.9904L16.6244 36.3827C15.9577 36.7676 15.1244 36.2865 15.1244 35.5167L15.1244 14.732Z"
+          />
+        </g>
+        <g id="darkGroup">
+          <path
+            id="dark1"
+            opacity="0.7"
+            d="M23.7039 14.7652C23.7039 14.0046 24.5359 13.5334 25.2074 13.9137L43.5863 24.3226C44.2626 24.7057 44.2687 25.6639 43.5972 26.0442L25.2183 36.4532C24.5469 36.8335 23.7039 36.3491 23.7039 35.5831L23.7039 14.7652Z"
+          />
+          <path
+            id="dark2"
+            opacity="0.7"
+            d="M14.7039 14.7652C14.7039 14.0047 15.5359 13.5334 16.2074 13.9137L34.5863 24.3226C35.2626 24.7057 35.2687 25.6639 34.5972 26.0442L16.2183 36.4532C15.5469 36.8335 14.7039 36.3492 14.7039 35.5831L14.7039 14.7652Z"
+          />
+        </g>
+      </g>
+      <defs>
+        <clipPath id="clip0">
+          <rect width="100" height="50" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <script>
+      const svg = document.getElementById('triangles');
+
+      svg.onclick = (e) => {
+        const colors = [
+          'red',
+          'blue',
+          'green',
+          'orange',
+          'pink',
+          'purple',
+          'cyan',
+          'lightblue',
+          'darkgreen',
+        ];
+        const randomizeColor = () => {
+          return colors[Math.floor(Math.random() * colors.length)];
+        };
+        document.documentElement.style.cssText = `
+        --dark-color: ${randomizeColor()};
+        --light-color: ${randomizeColor()};
+        `;
+      };
+    </script>
+  </body>
+</html>
